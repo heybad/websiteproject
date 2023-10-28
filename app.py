@@ -1,14 +1,22 @@
-# app.py
 from flask import Flask, render_template
+import pandas as pd
 
 app = Flask(__name__)
 
+# Read the CSV file
+df = pd.read_csv('Airlines_data.csv')
+
+# Convert the DataFrame to a list of dictionaries for easy rendering in HTML
+data = df.to_dict(orient='records')
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('main.html', data=data)
+
+@app.route('/portfolio')
+def portfolio():
+    return render_template('portfolio.html', data=data)
 
 if __name__ == '__main__':
-  # Use a production server (e.g., Gunicorn) and turn off debug mode
-  gunicorn_app = app
-  gunicorn_app.run(host='0.0.0.0', port=5000, debug=False)
-
+    gunicorn_app = app
+    gunicorn_app.run(host='0.0.0.0', port=5000, debug=False)
