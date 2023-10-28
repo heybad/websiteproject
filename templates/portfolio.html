@@ -1,40 +1,7 @@
 {% extends "main.html" %}
 
 {% block content %}
-    <!-- Contents of the Portfolio section -->
-    <section class="w3-container w3-padding-32">
-        <h2>Airline Dataset</h2>
-        <table class="w3-table-all">
-            <thead>
-                <tr>
-                    <th>Gender</th>
-                    <th>Age</th>
-                    <th>Customer Type</th>
-                    <th>Type of Travel</th>
-                    <th>Class</th>
-                    <th>Flight Distance</th>
-                    <th>Departure Delay</th>
-                    <th>Ease of Online Booking</th>
-                    <th>Check-in Service</th>
-                    <th>Satisfaction</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for record in data[:15] %}
-                <tr>
-                    <td>{{ record['Gender'] }}</td>
-                    <td>{{ record['Age'] }}</td>
-                    <td>{{ record['Customer Type'] }}</td>
-                    <td>{{ record['Type of Travel'] }}</td>
-                    <td>{{ record['Class'] }}</td>
-                    <td>{{ record['Flight Distance'] }}</td>
-                    <td>{{ record['Departure Delay'] }}</td>
-                    <td>{{ record['Ease of Online Booking'] }}</td>
-                    <td>{{ record['Check-in Service'] }}</td>
-                    <td>{{ record['Satisfaction'] }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </section>
+    <a href="/portfolio/airline" class="w3-bar-item w3-button w3-light-grey">Airline Dataset!!!</a>
+<a href="/portfolio/scooter" class="w3-bar-item w3-button w3-light-grey"> Scooter Dataset!!!</a>
 {% endblock %}
+

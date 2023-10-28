@@ -11,24 +11,27 @@ data = df.to_dict(orient='records')
 
 @app.route('/')
 def index():
-  # Render 'main.html'
   return render_template('main.html')
 
 @app.route('/home')
 def home():
-  # Remove this line
-  # return render_template('main.html')
-
   return render_template('main.html') + render_template('home.html') 
 
 @app.route('/portfolio')
 def portfolio():
-  return render_template('portfolio.html', data=data)
+  return render_template('portfolio.html')
+
+@app.route('/portfolio/airline')
+def airline():
+    return render_template('airline.html', data=data)
+  
+@app.route('/portfolio/scooter')
+def scooter():
+    return render_template('scooter.html', data=data)
 
 @app.route('/contact')
 def contact():
   return render_template('contact.html')
 
 if __name__ == '__main__':
-  gunicorn_app = app
-  gunicorn_app.run(host='0.0.0.0', port=5000, debug=False)
+  app.run(host='0.0.0.0', port=5000, debug=False)
