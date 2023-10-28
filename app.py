@@ -14,6 +14,10 @@ def index():
     # Render 'main.html' and 'home.html'
     return render_template('main.html') + render_template('home.html')
 
+@app.route('/home')
+def home():
+  return render_template('main.html') + render_template('home.html')
+
 @app.route('/portfolio')
 def portfolio():
    return render_template('portfolio.html', data=data)

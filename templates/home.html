@@ -1,10 +1,34 @@
+
+{% block content %}
 <html>
 <head>
     <!-- Your head content here -->
+  <style>
+      body {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+      }
+    h1 {
+      font-family: "Raleway", Arial, sans-serif}
+      h1 {letter-spacing: 6px}
+        .w3-row-padding img {margin-bottom: 12px}
+  
+      }
+
+      img {
+          max-width: 100%; 
+          height: auto;
+      }
+  </style>
 </head>
 <body>
     <h1>Welcome to the Home Page</h1>
-    <img src="images/image.jpg" alt="Description of the image">
-    <!-- Rest of your content goes here -->
+    <!-- <img src="https://replit.com/@kmohamud10/Wednesday#images/data.png" alt="Description of the image"> -->
+  <img src="images/datafile.jpg" alt="What's wrong">
+<!-- Rest of your content goes here -->
 </body>
 </html>
+{% endblock %}
