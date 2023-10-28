@@ -11,12 +11,17 @@ data = df.to_dict(orient='records')
 
 @app.route('/')
 def index():
-    return render_template('main.html', data=data)
+    # Render 'main.html' and 'home.html'
+    return render_template('main.html') + render_template('home.html')
 
 @app.route('/portfolio')
 def portfolio():
-    return render_template('portfolio.html', data=data)
+   return render_template('portfolio.html', data=data)
 
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+  
 if __name__ == '__main__':
     gunicorn_app = app
     gunicorn_app.run(host='0.0.0.0', port=5000, debug=False)

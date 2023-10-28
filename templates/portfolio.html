@@ -3,7 +3,7 @@
 {% block content %}
     <!-- Contents of the Portfolio section -->
     <section class="w3-container w3-padding-32">
-        <h2>Portfolio</h2>
+        <h2>Airline Dataset</h2>
         <table class="w3-table-all">
             <thead>
                 <tr>
@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for record in data[:4] %}
+                {% for record in data[:15] %}
                 <tr>
                     <td>{{ record['Gender'] }}</td>
                     <td>{{ record['Age'] }}</td>
