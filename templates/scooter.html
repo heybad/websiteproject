@@ -1,9 +1,37 @@
 {% extends "portfolio.html" %}
 
 {% block content %}
-    <!-- Contents of the Portfolio section -->
-    <section class="w3-container w3-padding-32">
-        <h2>Scooter Dateset</h2>
-        <h4> Coming soon</h4>
-    </section>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div style="text-align: center; font-family: 'Raleway, Arial, sans-serif';">
+    <a href="/portfolio/airline" class="w3-bar-item w3-button w3-light-grey">Airline Dataset!!!</a>
+    <a href="/portfolio/scooter" class="w3-bar-item w3-button w3-light-grey">ML loan</a>
+  <h1>Scooter data</h1>
+  <section class="w3-container w3-padding-32">
+      <h2>Airline Dataset</h2>
+      <table class="w3-table-all">
+          <thead>
+              <tr>
+                  <th>Gender</th>
+                  <th>Married</th>
+                  <th>Educatione</th>
+                  <th>Self_Employed</th>
+                  <th>ApplicantIncome</th>
+                  
+              </tr>
+          </thead>
+          <tbody>
+              {% for record in data[:15] %}
+              <tr>
+                  <td>{{ record['Gender'] }}</td>
+                  <td>{{ record['Married'] }}</td>
+                  <td>{{ record['Educatione'] }}</td>
+                  <td>{{ record['Self_Employed'] }}</td>
+                  <td>{{ record['ApplicantIncome'] }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+  </section>
+</div>
 {% endblock %}
