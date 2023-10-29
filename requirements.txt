@@ -1,7 +1,3 @@
 Flask
 gunicorn
 pandas
-scikit-learn
-
-LinearRegression
-PolynomialFeatures

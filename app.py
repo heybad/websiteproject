@@ -4,10 +4,10 @@ import pandas as pd
 app = Flask(__name__)
 
 # Read the CSV file
-df = pd.read_csv('data/Airlines_data.csv')
-df1 = pd.read_csv('data/updated_loan.csv')
-data = df.to_dict(orient='records')
-datas = df1.to_dict(orient='records')
+df_airlines = pd.read_csv('data/Airlines_data.csv')
+df_loan = pd.read_csv('data/updated_loan.csv')
+data_airlines = df_airlines.to_dict(orient='records')
+data_loan = df_loan.to_dict(orient='records')
 
 @app.route('/')
 def index():
@@ -23,11 +23,11 @@ def portfolio():
 
 @app.route('/portfolio/airline')
 def airline():
-    return render_template('airline.html', data=data)
+    return render_template('airline.html', data=data_airlines)
 
 @app.route('/portfolio/scooter')
 def scooter():
-    return render_template('scooter.html', data=datas)
+    return render_template('scooter.html', data=data_loan)
 
 @app.route('/contact')
 def contact():
@@ -35,3 +35,9 @@ def contact():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)
+
+
+
+
+
+
