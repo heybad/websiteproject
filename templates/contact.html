@@ -1,3 +1,4 @@
+{% extends "main.html" %}
 {% block content %}
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -50,7 +51,7 @@ input[type=submit]:hover {
         
     </form>
   {% if result is not none %}
-  <p>Result: {{ result }}</p>
+  <p>{{ result }}</p>
   {% endif %}
 </div>
 {% endblock %}
