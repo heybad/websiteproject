@@ -10,5 +10,5 @@ def create_contact_routes(app, data_saver):
             last_name = request.form['last_name']
             email = request.form['email']
             data_saver.save_to_csv(first_name, last_name, email)
-            result = "Thank you for reaching out to us! Your message has been successfully submitted"
+            result = "Thank you for reaching out to us! Your message has been successfully submitted!!"
         return render_template('contact.html', result=result)
