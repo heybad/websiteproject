@@ -1,43 +1,34 @@
-from flask import Flask, render_template
-import pandas as pd
+from flask import Flask,request
+import csv
+from home import create_home_routes
+from portfolio import create_portfolio_routes
+from contact import create_contact_routes
+from data_loader import load_data
 
 app = Flask(__name__)
 
-# Read the CSV file
-df_airlines = pd.read_csv('data/Airlines_data.csv')
-df_loan = pd.read_csv('data/updated_loan.csv')
-data_airlines = df_airlines.to_dict(orient='records')
-data_loan = df_loan.to_dict(orient='records')
+class DataSaver:
+    def __init__(self, filename):
+        self.filename = filename
 
-@app.route('/')
-def index():
-    return render_template('main.html')
+    def save_to_csv(self, fname, lname, email):
+        with open(self.filename, mode='a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow([fname, lname, email])
 
-@app.route('/home')
-def home():
-    return render_template('main.html') + render_template('home.html')
+data_saver = DataSaver('data.csv')
 
-@app.route('/portfolio')
-def portfolio():
-    return render_template('portfolio.html')
+if __name__ == '__main__':
+    with open('data.csv', mode='a', newline='') as file:
+        writer = csv.writer(file)
+        # Check if the file is empty before writing the header row
+        if file.tell() == 0:
+            writer.writerow(['first_name', 'last_name', 'email'])
 
-@app.route('/portfolio/airline')
-def airline():
-    return render_template('airline.html', data=data_airlines)
-
-@app.route('/portfolio/scooter')
-def scooter():
-    return render_template('scooter.html', data=data_loan)
-
-@app.route('/contact')
-def contact():
-    return render_template('contact.html')
+# Create routes for home, portfolio, and contact
+create_home_routes(app)
+create_portfolio_routes(app)  # Pass data_saver as an argument
+create_contact_routes(app, data_saver)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)
-
-
-
-
-
-
